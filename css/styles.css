@@ -1,0 +1,43 @@
+html {
+    font-family: 'Meiryo', monospace;
+    width: 100%;
+}
+
+body {
+    width: 100%;
+}
+.container {
+    margin:20px auto;
+    width: 80%;
+    background: #fff;
+    padding: 15px;
+    text-align: center;
+}
+#timer {
+    height: 120px;
+    line-height: 120px;
+    font-size: 80px;
+    margin-bottom: 15px;
+}
+.controls {
+    display:flex;
+    justify-content:space-evenly
+}
+.btn {
+    background-color: #eee;
+    width: 100px;
+    padding: 10px;
+    height: 45px;
+    line-height: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    font-size: 30px;
+}
+/* .btn:hover {
+    opacity: 0.7;
+} */
+.inactive {
+    cursor:context-menu;
+    opacity: 0.6;
+}
