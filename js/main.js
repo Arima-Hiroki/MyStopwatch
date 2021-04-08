@@ -2,7 +2,6 @@
 {
     const timer = document.getElementById('timer');
     const start = document.getElementById('start');
-    const stop = document.getElementById('stop');
     const reset = document.getElementById('reset');
 
     let startTime;
@@ -12,25 +11,13 @@
 
     function setButtonStateInitial () {
         start.classList.remove('inactive');
-        stop.classList.add('inactive');
-        reset.classList.add('inactive');
-    }
-    function setButtonStateRunning () {
-        start.classList.add('inactive');
-        stop.classList.remove('inactive');
-        reset.classList.add('inactive');
-    }
-    function setButtonStateStopped () {
-        start.classList.remove('inactive');
-        stop.classList.add('inactive');
         reset.classList.remove('inactive');
     }
 
-    function countUp () {
-        // console.log(Date.now()- startTime);
 
+    function countUp () {
         const d = new Date(Date.now() - startTime + elapsedTime);
-        const h = String(d.getHours()).padStart(2, 0);
+        const h = String(d.getUTCHours()).padStart(2, 0);
         const s = String(d.getSeconds()).padStart(2, 0);
         const m = String(d.getMinutes()).padStart(2, 0);
         const ms = String(d.getMilliseconds()).padStart(3, 0);
@@ -44,20 +31,16 @@
     setButtonStateInitial();
 
     start.addEventListener('click', ()=>{
-        if (start.classList.contains('inactive') === true) {
-            return;
+        start.classList.toggle('stop');
+        if (start.classList.contains('stop') === true) {
+            start.textContent = "Stop";
+            startTime = Date.now();
+            countUp();
+        } else {
+            start.textContent = "Start";
+            clearTimeout(timeoutId);
+            elapsedTime += Date.now() - startTime; //動いている時間を合算
         }
-        setButtonStateRunning();
-        startTime = Date.now();
-        countUp();
-    });
-    stop.addEventListener('click', ()=>{
-        if (stop.classList.contains('inactive') === true) {
-            return;
-        }
-        setButtonStateStopped();
-        clearTimeout(timeoutId);
-        elapsedTime += Date.now() - startTime; //動いている時間を合算
     });
     reset.addEventListener('click', ()=>{
         if (reset.classList.contains('inactive') === true) {
