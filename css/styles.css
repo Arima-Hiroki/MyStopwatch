@@ -1,6 +1,8 @@
 html {
-    font-family: 'Meiryo', monospace;
+    font-family: 'メイリオ', monospace, sans-serif;
+    /* font-family: monospace; */
     width: 100%;
+    font-size: 62.5%;
 }
 
 body {
@@ -14,29 +16,59 @@ body {
     text-align: center;
 }
 #timer {
-    height: 120px;
-    line-height: 120px;
-    font-size: 80px;
-    margin-bottom: 15px;
+    /* height: 200px;
+    line-height: 200px; */
+    font-size: 120px;
+    margin-bottom: 40px;
 }
 .controls {
     display:flex;
-    justify-content:space-evenly
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 400px;
+    margin-bottom: 60px;
 }
 .btn {
-    background-color: #eee;
-    width: 100px;
+    color: #fff;
+    width: 80px;
     padding: 10px;
-    height: 45px;
-    line-height: 45px;
-    font-weight: bold;
+    height: 80px;
+    line-height: 80px;
     cursor: pointer;
     user-select: none;
-    font-size: 30px;
+    font-size: 20px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px #fff, 0 0 0 5px #bbb;
+    background-color: #bbb;
 }
-.inactive {
+.btn:hover {
     cursor:context-menu;
-    opacity: 0.6;
+    opacity: 0.8;
+}
+.start {
+    color:rgb(71, 199, 82);
+    box-shadow: 0 0 0 3px #fff, 0 0 0 5px rgba(50, 200, 50, 0.2);
+    background-color: rgba(50, 200, 50, 0.2);
 }
 .stop {
+    color:rgb(241, 32, 74);
+    box-shadow: 0 0 0 3px #fff, 0 0 0 5px rgba(211, 1, 43, 0.2);
+    background-color: rgba(211, 1, 43, 0.2);
+}
+table {
+    width: 400px;
+    margin: 0 auto;
+    font-size: 20px;
+    border-collapse: collapse;
+    line-height: 2;
+}
+/* tr {
+    display: flex;
+    justify-content: space-between;
+} */
+td {
+    border-top:1px solid lightgray;
+    border-bottom:1px solid lightgray;
+    width: 50%;
+
 }
